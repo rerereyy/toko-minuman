@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Laporan Project - Toko Minuman</title>
+    <style>
+        @page { margin: 2cm; size: A4; }
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #000;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 2cm;
+        }
+        .cover {
+            text-align: center;
+            padding-top: 120px;
+            page-break-after: always;
+        }
+        .cover h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .cover h2 {
+            font-size: 28pt;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .cover .subtitle {
+            font-size: 13pt;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 150px;
+        }
+        .cover .info {
+            text-align: left;
+            display: inline-block;
+            font-size: 12pt;
+        }
+        .cover .info table td {
+            padding: 2px 10px;
+            vertical-align: top;
+        }
+        h1.section {
+            font-size: 18pt;
+            font-weight: bold;
+            border-bottom: 3px solid #b8860b;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h2.sub {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        h3.sub2 {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        ul { margin-left: 20px; }
+        li { margin-bottom: 5px; }
+        .screenshot {
+            text-align: center;
+            margin: 15px 0;
+        }
+        .screenshot img {
+            max-width: 100%;
+            border: 1px solid #ccc;
+        }
+        .caption {
+            text-align: center;
+            font-style: italic;
+            font-size: 10pt;
+            color: #555;
+            margin-top: 5px;
+        }
+        table.db-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 10pt;
+        }
+        table.db-table th, table.db-table td {
+            border: 1px solid #999;
+            padding: 6px 10px;
+            text-align: left;
+        }
+        table.db-table th {
+            background-color: #f0f0f0;
+            font-weight: bold;
+        }
+        .page-break { page-break-before: always; }
+        a { color: #1a0dab; }
+        .code {
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 3px 8px;
+            font-family: monospace;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+    <h1>Laporan Project</h1>
+    <h2>Toko Minuman</h2>
+    <p class="subtitle">Sistem Manajemen Inventaris &amp; Penjualan Minuman Beralkohol</p>
+    <div class="info">
+        <table>
+            <tr><td>Nama</td><td>: Sultan Naf Adin</td></tr>
+            <tr><td>NIM</td><td>: 241110107</td></tr>
+            <tr><td>Mata Kuliah</td><td>: Praktikum Pemrograman Web</td></tr>
+        </table>
+    </div>
+</div>
+
+<!-- 1. DESKRIPSI PROJECT -->
+<h1 class="section">1. Deskripsi Project</h1>
+<p>
+    Toko Minuman adalah aplikasi web sistem manajemen inventaris dan penjualan produk minuman beralkohol.
+    Aplikasi ini dirancang untuk membantu pengelola toko dalam mengelola data produk, kategori, pelanggan,
+    serta mencatat setiap transaksi penjualan secara digital. Sistem ini menggunakan arsitektur CRUD
+    (Create, Read, Update, Delete) pada setiap modulnya.
+</p>
+
+<h2 class="sub">Fitur Utama</h2>
+<ul>
+    <li><strong>Login dan Registrasi</strong>: autentikasi pengguna berbasis session dengan dua role (admin dan kasir).</li>
+    <li><strong>Dashboard</strong>: menampilkan statistik total produk, pelanggan, transaksi, pendapatan, serta daftar transaksi terakhir dan produk terlaris.</li>
+    <li><strong>Manajemen Produk</strong>: CRUD lengkap &mdash; tambah, edit, hapus, cari, dan filter berdasarkan kode/nama produk maupun kategori.</li>
+    <li><strong>Manajemen Kategori</strong>: CRUD kategori produk (Beer, Wine, Spirits, Cocktail, Liqueur, Non-Alkohol).</li>
+    <li><strong>Manajemen Pelanggan</strong>: CRUD data pelanggan dengan fitur pencarian.</li>
+    <li><strong>Transaksi Penjualan</strong>: form transaksi dengan keranjang dinamis (tambah/hapus baris), perhitungan subtotal otomatis, diskon, pemilihan metode pembayaran (cash, transfer, kartu), serta detail struk.</li>
+    <li><strong>Laporan</strong>: rekapitulasi penjualan per bulan, penjualan per kategori, top produk terlaris, dan metode pembayaran.</li>
+    <li><strong>Profil</strong>: melihat dan mengedit informasi profil serta ubah password.</li>
+</ul>
+
+<h2 class="sub">Teknologi yang Digunakan</h2>
+<ul>
+    <li><strong>Backend</strong>: Native PHP (tanpa framework).</li>
+    <li><strong>Database</strong>: MySQL, dikelola melalui phpMyAdmin.</li>
+    <li><strong>Styling</strong>: Bootstrap 5.3 (dimuat melalui CDN), mendukung tampilan responsif.</li>
+    <li><strong>Icons</strong>: Bootstrap Icons (dimuat melalui CDN).</li>
+</ul>
+
+<!-- 2. SCREENSHOT FITUR -->
+<div class="page-break"></div>
+<h1 class="section">2. Screenshot Fitur</h1>
+
+<h2 class="sub">2.1 Halaman Login</h2>
+<div class="screenshot">
+    <img src="screenshot_login.png" alt="Halaman Login">
+</div>
+<p class="caption">Gambar 1. Halaman Login Toko Minuman</p>
+
+<h2 class="sub">2.2 Halaman Register</h2>
+<div class="screenshot">
+    <img src="screenshot_register.png" alt="Halaman Register">
+</div>
+<p class="caption">Gambar 2. Halaman Registrasi Akun Baru</p>
+
+<h2 class="sub">2.3 Dashboard</h2>
+<div class="screenshot">
+    <img src="screenshot_dashboard.png" alt="Dashboard">
+</div>
+<p class="caption">Gambar 3. Dashboard menampilkan statistik dan transaksi terakhir</p>
+
+<div class="page-break"></div>
+
+<h2 class="sub">2.4 Halaman Produk</h2>
+<div class="screenshot">
+    <img src="screenshot_produk.png" alt="Halaman Produk">
+</div>
+<p class="caption">Gambar 4. Halaman Data Produk dengan filter dan pencarian</p>
+
+<h2 class="sub">2.5 Halaman Kategori</h2>
+<div class="screenshot">
+    <img src="screenshot_kategori.png" alt="Halaman Kategori">
+</div>
+<p class="caption">Gambar 5. Halaman Manajemen Kategori Produk</p>
+
+<h2 class="sub">2.6 Halaman Pelanggan</h2>
+<div class="screenshot">
+    <img src="screenshot_pelanggan.png" alt="Halaman Pelanggan">
+</div>
+<p class="caption">Gambar 6. Halaman Data Pelanggan</p>
+
+<div class="page-break"></div>
+
+<h2 class="sub">2.7 Halaman Transaksi</h2>
+<div class="screenshot">
+    <img src="screenshot_transaksi.png" alt="Halaman Transaksi">
+</div>
+<p class="caption">Gambar 7. Form Transaksi Baru dengan keranjang dinamis</p>
+
+<h2 class="sub">2.8 Halaman Laporan</h2>
+<div class="screenshot">
+    <img src="screenshot_laporan.png" alt="Halaman Laporan">
+</div>
+<p class="caption">Gambar 8. Laporan penjualan per bulan</p>
+
+<h2 class="sub">2.9 Halaman Profil</h2>
+<div class="screenshot">
+    <img src="screenshot_profil.png" alt="Halaman Profil">
+</div>
+<p class="caption">Gambar 9. Halaman Profil Pengguna</p>
+
+<!-- 3. SCREENSHOT DATABASE -->
+<div class="page-break"></div>
+<h1 class="section">3. Screenshot Database</h1>
+<p>
+    Database aplikasi Toko Minuman bernama <span class="code">toko_minuman_db</span>, terdiri dari 6 tabel utama yaitu
+    <span class="code">users</span>, <span class="code">kategori_produk</span>, <span class="code">produk</span>,
+    <span class="code">pelanggan</span>, <span class="code">transaksi</span>, dan <span class="code">detail_transaksi</span>.
+</p>
+
+<h2 class="sub">3.1 Daftar Tabel (toko_minuman_db)</h2>
+<div class="screenshot">
+    <img src="screenshot_db_daftar.png" alt="Daftar Tabel">
+</div>
+<p class="caption">Gambar 10. Daftar tabel pada database toko_minuman_db</p>
+
+<h2 class="sub">3.2 Tabel users</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik pengguna</td></tr>
+    <tr><td>nama_lengkap</td><td>VARCHAR(100)</td><td>Nama lengkap pengguna</td></tr>
+    <tr><td>email</td><td>VARCHAR(100), UNIQUE</td><td>Email untuk login</td></tr>
+    <tr><td>password</td><td>VARCHAR(255)</td><td>Password ter-hash (bcrypt)</td></tr>
+    <tr><td>role</td><td>ENUM('admin','kasir')</td><td>Role pengguna</td></tr>
+    <tr><td>no_hp</td><td>VARCHAR(15)</td><td>Nomor handphone</td></tr>
+    <tr><td>created_at</td><td>TIMESTAMP</td><td>Waktu pendaftaran</td></tr>
+</table>
+<div class="screenshot">
+    <img src="screenshot_db_users.png" alt="Tabel users">
+</div>
+<p class="caption">Gambar 11. Isi tabel users</p>
+
+<h2 class="sub">3.3 Tabel kategori_produk</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik kategori</td></tr>
+    <tr><td>nama_kategori</td><td>VARCHAR(100)</td><td>Nama kategori</td></tr>
+    <tr><td>deskripsi</td><td>TEXT</td><td>Deskripsi kategori</td></tr>
+    <tr><td>created_at</td><td>TIMESTAMP</td><td>Waktu pembuatan</td></tr>
+</table>
+
+<h2 class="sub">3.4 Tabel produk</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik produk</td></tr>
+    <tr><td>kode_produk</td><td>VARCHAR(20), UNIQUE</td><td>Kode unik produk</td></tr>
+    <tr><td>nama_produk</td><td>VARCHAR(150)</td><td>Nama produk</td></tr>
+    <tr><td>kategori_id</td><td>INT, FK</td><td>Foreign key ke kategori_produk</td></tr>
+    <tr><td>harga_jual</td><td>DECIMAL(12,2)</td><td>Harga jual produk</td></tr>
+    <tr><td>stok</td><td>INT</td><td>Jumlah stok tersedia</td></tr>
+    <tr><td>deskripsi</td><td>TEXT</td><td>Deskripsi produk</td></tr>
+    <tr><td>created_at</td><td>TIMESTAMP</td><td>Waktu pembuatan</td></tr>
+</table>
+<div class="screenshot">
+    <img src="screenshot_db_produk.png" alt="Tabel produk">
+</div>
+<p class="caption">Gambar 12. Isi tabel produk</p>
+
+<div class="page-break"></div>
+
+<h2 class="sub">3.5 Tabel pelanggan</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik pelanggan</td></tr>
+    <tr><td>nama_pelanggan</td><td>VARCHAR(100)</td><td>Nama pelanggan</td></tr>
+    <tr><td>no_hp</td><td>VARCHAR(15)</td><td>Nomor handphone</td></tr>
+    <tr><td>alamat</td><td>TEXT</td><td>Alamat pelanggan</td></tr>
+    <tr><td>email</td><td>VARCHAR(100)</td><td>Email pelanggan</td></tr>
+    <tr><td>created_at</td><td>TIMESTAMP</td><td>Waktu pendaftaran</td></tr>
+</table>
+
+<h2 class="sub">3.6 Tabel transaksi</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik transaksi</td></tr>
+    <tr><td>kode_transaksi</td><td>VARCHAR(20), UNIQUE</td><td>Kode unik transaksi</td></tr>
+    <tr><td>user_id</td><td>INT, FK</td><td>Foreign key ke users (kasir)</td></tr>
+    <tr><td>pelanggan_id</td><td>INT, FK, NULL</td><td>Foreign key ke pelanggan</td></tr>
+    <tr><td>tanggal_transaksi</td><td>DATETIME</td><td>Waktu transaksi</td></tr>
+    <tr><td>subtotal</td><td>DECIMAL(12,2)</td><td>Subtotal sebelum diskon</td></tr>
+    <tr><td>diskon</td><td>DECIMAL(12,2)</td><td>Jumlah diskon</td></tr>
+    <tr><td>total_bayar</td><td>DECIMAL(12,2)</td><td>Total yang harus dibayar</td></tr>
+    <tr><td>metode_pembayaran</td><td>ENUM('cash','transfer','kartu')</td><td>Metode pembayaran</td></tr>
+    <tr><td>status</td><td>ENUM('selesai','pending','batal')</td><td>Status transaksi</td></tr>
+</table>
+<div class="screenshot">
+    <img src="screenshot_db_transaksi.png" alt="Tabel transaksi">
+</div>
+<p class="caption">Gambar 13. Isi tabel transaksi</p>
+
+<h2 class="sub">3.7 Tabel detail_transaksi</h2>
+<table class="db-table">
+    <tr><th>Kolom</th><th>Tipe</th><th>Keterangan</th></tr>
+    <tr><td>id</td><td>INT, PK, AI</td><td>Identifier unik detail</td></tr>
+    <tr><td>transaksi_id</td><td>INT, FK</td><td>Foreign key ke transaksi</td></tr>
+    <tr><td>produk_id</td><td>INT, FK</td><td>Foreign key ke produk</td></tr>
+    <tr><td>jumlah</td><td>INT</td><td>Jumlah yang dibeli</td></tr>
+    <tr><td>harga_satuan</td><td>DECIMAL(12,2)</td><td>Harga saat transaksi</td></tr>
+    <tr><td>subtotal</td><td>DECIMAL(12,2)</td><td>jumlah &times; harga_satuan</td></tr>
+</table>
+<div class="screenshot">
+    <img src="screenshot_db_detail.png" alt="Tabel detail_transaksi">
+</div>
+<p class="caption">Gambar 14. Isi tabel detail_transaksi</p>
+
+<!-- 4. TAUTAN -->
+<div class="page-break"></div>
+<h1 class="section">4. Tautan (URL)</h1>
+<p><strong>URL GitHub:</strong> <a href="https://github.com/rerereyy/toko-minuman">https://github.com/rerereyy/toko-minuman</a></p>
+<p><strong>URL Video Presentasi:</strong> <em>(belum tersedia &mdash; silakan isi setelah upload ke YouTube)</em></p>
+
+</body>
+</html>
